@@ -1,0 +1,594 @@
+
+/* =================================
+   UNIVERSAL SETTINGS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+header .logo {
+    color: #072e13;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #134e24;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #134e24;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Navigation Login Button */
+
+.navigation .btnLogin-popup {
+    width: 110px;
+    height: 45px;
+    background: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa820a 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.05em;
+    color: #134e24;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+}
+
+.navigation .btnLogin-popup:hover {
+    background: linear-gradient(135deg, #ffe599 0%, #e6c555 50%, #b8900c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.navigation .btnLogin-popup:active {
+    transform: translateY(0);
+}
+
+/* =================================
+   MAIN BACKGROUND
+================================= */
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #072e13 0%, #0c3b1a 50%, #134e24 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Gold Glow Effect */
+
+.main::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* =================================
+   CONTENT
+================================= */
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 50px;
+}
+
+/* Welcome Text */
+
+.left-section {
+    position: relative;
+    max-width: 550px;
+}
+
+.left-section h1 {
+    font-size: 46px;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.left-section h1 span {
+    background: linear-gradient(135deg, #ffe066 0%, #d4af37 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.left-section .par {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #c2d6cb;
+    letter-spacing: 0.5px;
+}
+
+/* =================================
+   WATERMARK
+================================= */
+
+.center-watermark {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    max-width: 95vw;
+    height: auto;
+    max-height: 95vh;
+    object-fit: contain;
+    opacity: 0.20;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* =================================
+   LOGIN POPUP WRAPPER
+================================= */
+
+.wrapper {
+    position: fixed;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    width: 400px;
+    min-height: 390px;
+    padding: 40px 35px;
+
+    background: rgba(4, 26, 11, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
+
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    overflow: hidden;
+
+    transition: all 0.3s ease-in-out;
+}
+
+/* Active Popup */
+
+.wrapper.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* =================================
+   FORM BOX
+================================= */
+
+.wrapper .form-box {
+    width: 100%;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.wrapper .form-box h2 {
+    color: #d4af37;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* =================================
+   INPUT BOX
+================================= */
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 52px;
+    margin-bottom: 26px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 2px solid #d4af37;
+    border-radius: 10px 10px 4px 4px;
+
+    color: #ffffff;
+    font-size: 15px;
+
+    padding: 14px 45px 0 16px;
+
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #ffe066;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+}
+
+/* Floating Labels */
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+
+    transform: translateY(-50%);
+
+    font-size: 15px;
+    color: #8fa89b;
+
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label {
+    top: 11px;
+    font-size: 11px;
+    color: #d4af37;
+    font-weight: 600;
+}
+
+/* Input Icons */
+
+.input-box .icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 19px;
+    color: #d4af37;
+
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+
+    transition: color 0.3s ease;
+}
+
+/* Correct Focus Effect */
+
+.input-box:focus-within .icon {
+    color: #ffe066;
+}
+
+/* =================================
+   REMEMBER ME
+================================= */
+
+.remember {
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    color: #c2d6cb;
+
+    margin: -5px 0 20px 0;
+}
+
+.remember label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.remember label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #d4af37;
+    margin: 0;
+    cursor: pointer;
+}
+
+.remember label span {
+    display: inline-block;
+    line-height: normal;
+}
+
+/* =================================
+   LOGIN BUTTON
+================================= */
+
+.wrapper .btn {
+    width: 100%;
+    height: 50px;
+
+    background: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa820a 100%);
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    margin-top: 10px;
+
+    color: #072e13;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+}
+
+.wrapper .btn:hover {
+    background: linear-gradient(135deg, #ffe599 0%, #e6c555 50%, #b8900c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.wrapper .btn:active {
+    transform: translateY(0);
+}
+
+/* =================================
+   ADMIN LINK
+================================= */
+
+.admin {
+    font-size: 14px;
+    color: #c2d6cb;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.admin a {
+    color: #d4af37;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.admin a:hover {
+    color: #ffe066;
+    text-decoration: underline;
+}
+
+/* =================================
+   USER AND ADMIN TRANSITION
+================================= */
+
+/* User Login */
+
+.wrapper .login {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Admin Login */
+
+.wrapper .admin-login {
+    position: absolute;
+    top: 40px;
+    left: 35px;
+    right: 35px;
+    width: auto;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(100%);
+}
+
+/* Switch to Admin */
+
+.wrapper.show-admin .login {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-100%);
+}
+
+.wrapper.show-admin .admin-login {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+/* Tablet */
+
+@media (max-width: 950px) {
+
+    .content {
+        flex-direction: column;
+        text-align: center;
+        gap: 35px;
+    }
+
+    .left-section h1 {
+        font-size: 36px;
+    }
+
+    .left-section .par {
+        margin: 15px auto 0;
+    }
+
+    .wrapper {
+        left: 50%;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    header .logo {
+        font-size: 14px;
+    }
+
+    .navigation {
+        gap: 12px;
+    }
+
+    .navigation a {
+        font-size: 13px;
+    }
+
+    .navigation .btnLogin-popup {
+        width: 75px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .left-section h1 {
+        font-size: 30px;
+    }
+
+    .left-section .par {
+        font-size: 15px;
+    }
+
+    .wrapper {
+        left: 50%;
+        width: calc(100% - 30px);
+        max-width: 400px;
+        padding: 35px 25px;
+    }
+
+    .wrapper .admin-login {
+        top: 35px;
+        left: 25px;
+        right: 25px;
+    }
+}
+
+.whatis {
+    margin-top: 30px;
+    max-width: 550px;
+}
+
+.whatis h3 {
+    color: #d4af37;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.whatis p {
+    color: #c2d6cb;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.note {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #d4af37;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}

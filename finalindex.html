@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Sticker Registration</title>
+    <link rel="stylesheet" href="finaldesign.css">
+</head>
+
+<body>
+
+    <!-- Watermark -->
+    <img src="Library Sticker Registration (2).png"
+         alt="Laya't Diwa Watermark"
+         class="center-watermark">
+
+    <!-- Header -->
+    <header>
+        <h2 class="logo">
+            Cavite State University<br>
+            Library Sticker Registration
+        </h2>
+
+        <nav class="navigation">
+            <a href="#" id="homeBtn">Home</a>
+            <a href="#">Schedules</a>
+            <button class="btnLogin-popup" id="loginBtn">
+                Login
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="content">
+            <div class="left-section">
+                <h1>
+                    Welcome to CvSU <br>
+                    <span>Library Sticker Registration</span>
+                </h1>
+
+                <p class="par">
+                    The Temporary Registration System for Library Stickers
+                </p>
+
+                <div class="whatis">
+                    <h3>What is a Library Sticker?</h3>
+                    <p>
+                        The library sticker is required for students to enter the library. 
+                        To reduce long queues during the library sticker registration period, 
+                        this system aims to organize and schedule students' registration 
+                        appointments. This will help manage the registration process, minimize
+                        waiting times, and provide students with a more convenient and 
+                        efficient way to register for their library stickers.
+                    </p>
+                </div>
+
+                <p class="note">
+                    Note: The sticker is for CvSU Library use only.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Popup -->
+    <div class="wrapper" id="loginPopup">
+
+        <!-- USER LOGIN -->
+        <div class="form-box login">
+
+            <h2>Login Here</h2>
+
+            <!-- Email -->
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="mail-outline"></ion-icon>
+                </span>
+
+                <input type="email" name="email" placeholder=" " required>
+                <label>Enter CvSU Email Here</label>
+            </div>
+
+            <!-- Password -->
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                </span>
+
+                <input type="password" name="password" placeholder=" " required>
+                <label>Enter Password Here</label>
+            </div>
+
+            <!-- Remember Me -->
+            <div class="remember">
+                <label>
+                    <input type="checkbox">
+                    <span>Remember me</span>
+                </label>
+            </div>
+
+            <!-- Login Button -->
+            <button type="button" class="btn" id="userLoginBtn">
+                Login
+            </button>
+
+            <!-- Admin Login Link -->
+            <div class="admin">
+                <p>Admin?
+                    <a href="#" class="admin-link" id="adminLink">
+                        Login Here
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- ADMIN LOGIN -->
+        <div class="form-box admin-login">
+
+            <h2>Admin Login</h2>
+
+            <!-- Admin Username -->
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="person-outline"></ion-icon>
+                </span>
+
+                <input type="email" name="adminUsername" placeholder=" " required>
+                <label>Enter Admin CvSU Email</label>
+            </div>
+
+            <!-- Admin Password -->
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                </span>
+
+                <input type="password" name="adminPassword" placeholder=" " required>
+                <label>Enter Admin Password</label>
+            </div>
+
+            <div class="remember">
+                <label>
+                    <input type="checkbox">
+                    <span>Remember me</span>
+                </label>
+            </div>
+
+            <!-- Admin Login Button -->
+            <button type="button" class="btn" id="adminLoginBtn">
+                Login
+            </button>
+
+            <!-- Back to User Login -->
+            <div class="admin">
+                <p>
+                    Not an Admin?
+                    <a href="#" class="admin-link" id="backToUser">
+                        Back to Login
+                    </a>
+                </p>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <!-- JavaScript -->
+    <script src="process.js"></script>
+
+    <!-- Ionicons -->
+    <script type="module"
+        src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js">
+    </script>
+
+    <script nomodule
+        src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js">
+    </script>
+
+</body>
+</html>
